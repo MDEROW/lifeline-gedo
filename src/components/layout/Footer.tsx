@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Mail, ArrowRight, Heart } from "lucide-react";
+import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 
 const programs = [
   { label: "Health & Nutrition", href: "/programs#health" },
@@ -23,35 +23,30 @@ const socials = [
   { l: "▶", title: "YouTube" },
 ];
 
+const trust = [
+  { stat: "100%", label: "Reaches the field" },
+  { stat: "21", label: "Years of service" },
+  { stat: "85k+", label: "Lives reached" },
+  { stat: "12%", label: "Admin costs only" },
+];
+
 export default function Footer() {
   return (
     <footer>
 
-      {/* ─── Donation CTA banner (redesigned) ─────────────────────────── */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-[#1E20D8] via-[#1A1CC4] to-[#0F11A0]">
-        {/* decorative circles */}
-        <div className="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-white/5" />
-        <div className="absolute -bottom-32 -left-12 w-80 h-80 rounded-full bg-white/5" />
-        <div className="absolute top-1/2 right-1/3 w-40 h-40 rounded-full bg-[#E8173A]/10 blur-2xl" />
-
-        <div className="relative container py-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-5 py-2 mb-7">
-              <Heart size={13} className="text-[#E8173A] fill-[#E8173A]" />
-              <span className="text-white text-[11px] font-bold uppercase tracking-[0.16em]" style={{ fontFamily: "var(--font-jakarta)" }}>
-                Make a difference today
-              </span>
+      {/* ─── Donate CTA band ──────────────────────────────────────────── */}
+      <div className="bg-[#1E20D8]">
+        <div className="container py-14">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div className="max-w-xl">
+              <p className="text-white/70 text-[11px] font-bold uppercase tracking-[0.18em] mb-3" style={{ fontFamily: "var(--font-jakarta)" }}>
+                Stand with Gedo
+              </p>
+              <h2 className="text-white text-[clamp(1.9rem,3.2vw,2.8rem)] font-extrabold leading-[1.12]" style={{ fontFamily: "var(--font-jakarta)" }}>
+                Your support saves lives in Somalia.
+              </h2>
             </div>
-
-            <h2 className="text-white text-[clamp(2rem,4vw,3.2rem)] font-extrabold leading-[1.1] mb-5" style={{ fontFamily: "var(--font-jakarta)" }}>
-              Every donation saves<br />a life in Gedo.
-            </h2>
-            <p className="text-white/75 text-[16px] leading-relaxed mb-10 max-w-xl mx-auto">
-              Join thousands of supporters standing with Somalia&apos;s most vulnerable
-              communities. 100% of your gift reaches the field.
-            </p>
-
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 shrink-0">
               <Link href="/donate" className="btn-donate text-[15px] px-10 py-4">
                 Donate Now <ArrowRight size={16} />
               </Link>
@@ -60,45 +55,60 @@ export default function Footer() {
               </Link>
             </div>
           </div>
+
+          {/* Trust stats row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-12 pt-10 border-t border-white/15">
+            {trust.map((t) => (
+              <div key={t.label} className="text-center md:text-left">
+                <div className="text-white text-[2rem] font-extrabold leading-none mb-1.5" style={{ fontFamily: "var(--font-jakarta)" }}>
+                  {t.stat}
+                </div>
+                <div className="text-white/60 text-[12px] font-semibold uppercase tracking-wide">
+                  {t.label}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* ─── Main footer (redesigned) ─────────────────────────────────── */}
+      {/* ─── Main footer ──────────────────────────────────────────────── */}
       <div className="bg-[#0A0E28]">
+        {/* brand-colour accent line */}
+        <div className="h-1 flex">
+          <div className="flex-1 bg-[#1E20D8]" />
+          <div className="flex-1 bg-[#E8173A]" />
+          <div className="flex-1 bg-[#2ECC71]" />
+        </div>
+
         <div className="container">
+          <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
 
-          {/* Top: logo + newsletter */}
-          <div className="py-12 flex flex-col lg:flex-row lg:items-center justify-between gap-8 border-b border-white/10">
-            <Link href="/" className="relative w-[200px] h-16 shrink-0">
-              <Image src="/images/logo/llg-logo.png" alt="Lifeline Gedo" fill className="object-contain object-left brightness-0 invert" />
-            </Link>
+            {/* Brand */}
+            <div className="lg:col-span-4">
+              <div className="relative w-[190px] h-14 mb-6">
+                <Image src="/images/logo/llg-logo.png" alt="Lifeline Gedo" fill className="object-contain object-left brightness-0 invert" />
+              </div>
+              <p className="text-white/65 text-[14.5px] leading-relaxed mb-7 max-w-sm">
+                A Somalia-led humanitarian organisation delivering life-saving health,
+                food, water, and resilience programs in Gedo region since 2005.
+              </p>
 
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 w-full lg:w-auto">
-              <span className="text-white/60 text-[14px] shrink-0">
-                Get monthly field updates →
-              </span>
-              <form className="flex gap-2.5 w-full sm:w-auto">
+              {/* Newsletter */}
+              <p className="text-white text-[13px] font-bold mb-3" style={{ fontFamily: "var(--font-jakarta)" }}>
+                Subscribe to field updates
+              </p>
+              <form className="flex gap-2.5 mb-7 max-w-sm">
                 <input
                   type="email"
                   placeholder="Your email address"
-                  className="flex-1 sm:w-64 px-4 py-3 rounded-lg text-[14px] text-[#0A0E28] bg-white placeholder:text-[#94A3B8] focus:outline-none focus:ring-2 focus:ring-[#1E20D8]/50"
+                  className="flex-1 px-4 py-3 rounded-lg text-[14px] text-[#0A0E28] bg-white placeholder:text-[#94A3B8] focus:outline-none focus:ring-2 focus:ring-[#1E20D8]/50"
                 />
-                <button type="submit" className="btn-blue justify-center py-3 px-6 shrink-0">
-                  Subscribe
+                <button type="submit" className="btn-blue justify-center py-3 px-5 shrink-0">
+                  <ArrowRight size={16} />
                 </button>
               </form>
-            </div>
-          </div>
 
-          {/* Columns */}
-          <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
-
-            {/* Mission */}
-            <div className="lg:col-span-4">
-              <p className="text-white/65 text-[15px] leading-relaxed mb-7 max-w-sm">
-                A Somalia-led humanitarian organisation delivering life-saving health,
-                food, water, and resilience programs in Gedo region for over 21 years.
-              </p>
               <div className="flex gap-2.5">
                 {socials.map((s) => (
                   <a key={s.l} href="#" title={s.title}
@@ -191,13 +201,13 @@ export default function Footer() {
         <div className="border-t border-white/10">
           <div className="container py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-[#8B93B0] text-[13px] text-center sm:text-left">
-              © {new Date().getFullYear()} Lifeline Gedo Organisation. Est. 2005. Registered NGO.
+              © {new Date().getFullYear()} Lifeline Gedo Organisation · Est. 2005 · Registered NGO
             </p>
             <div className="flex gap-7 text-[13px]">
               {[
-                { l: "Privacy", h: "/privacy" },
+                { l: "Privacy Policy", h: "/privacy" },
                 { l: "Terms", h: "/terms" },
-                { l: "Contact", h: "/contact" },
+                { l: "Accountability", h: "/impact" },
               ].map((i) => (
                 <Link key={i.h} href={i.h} className="text-[#A8AFC7] hover:text-white transition-colors">{i.l}</Link>
               ))}

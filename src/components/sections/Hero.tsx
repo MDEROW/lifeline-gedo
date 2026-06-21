@@ -10,7 +10,7 @@ const stats = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex flex-col overflow-hidden">
+    <section className="relative min-h-[82vh] flex flex-col overflow-hidden">
 
       {/* Background photo */}
       <div className="absolute inset-0">
@@ -28,7 +28,7 @@ export default function Hero() {
 
       {/* Main content */}
       <div className="relative flex-1 flex items-center">
-        <div className="container py-24 lg:py-32">
+        <div className="container py-20 lg:py-28">
           <div className="max-w-[680px]">
 
             {/* Badge */}
