@@ -24,6 +24,10 @@
 .DS_Store
 *.pem
 
+# Source asset folders — never commit raw iCloud/local media
+LLGWeb/
+LLGWeb
+
 # debug
 npm-debug.log*
 yarn-debug.log*
