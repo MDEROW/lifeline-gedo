@@ -1,41 +1,43 @@
 @import "tailwindcss";
 
 :root {
-  --green-dark: #1B5E20;
-  --green-mid: #2E7D32;
-  --green-light: #E8F5E9;
-  --orange: #E65100;
-  --orange-light: #FFF3E0;
-  --navy: #1A237E;
-  --warm-white: #F9F6F0;
-  --amber: #FFF8E1;
-  --text-dark: #1A1A2E;
-  --text-mid: #444;
-  --border: #E0E0E0;
+  /* Logo colors */
+  --blue: #1B1FCC;
+  --blue-dark: #0F1299;
+  --blue-light: #E8E9FF;
+  --red: #E8173A;
+  --red-dark: #C0102E;
+  --red-light: #FFF0F2;
+  --green: #27AE60;
+  --green-dark: #1E8449;
+  --green-light: #E9F7EF;
+
+  /* Additional brand colors */
+  --navy: #0D1B2A;
+  --cream: #FAFAF7;
+  --warm-grey: #F4F4F0;
+  --text: #1A1A2E;
+  --text-mid: #4A4A6A;
+  --border: #E2E2EC;
 }
 
 @theme inline {
-  --color-green-dark: var(--green-dark);
-  --color-green-mid: var(--green-mid);
-  --color-green-light: var(--green-light);
-  --color-orange: var(--orange);
+  --color-blue: var(--blue);
+  --color-blue-dark: var(--blue-dark);
+  --color-red: var(--red);
+  --color-green: var(--green);
   --color-navy: var(--navy);
-  --color-warm-white: var(--warm-white);
-  --color-text-dark: var(--text-dark);
+  --color-cream: var(--cream);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--warm-white);
-  color: var(--text-dark);
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -46,7 +48,55 @@ body {
 }
 
 @media (max-width: 768px) {
-  .container {
-    padding: 0 16px;
-  }
+  .container { padding: 0 16px; }
 }
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 12px;
+}
+
+.btn-primary {
+  background: var(--red);
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 28px;
+  border-radius: 4px;
+  display: inline-block;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+.btn-primary:hover { background: var(--red-dark); }
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 13px 28px;
+  border-radius: 4px;
+  border: 2px solid rgba(255,255,255,0.6);
+  display: inline-block;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+.btn-blue {
+  background: var(--blue);
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 28px;
+  border-radius: 4px;
+  display: inline-block;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+.btn-blue:hover { background: var(--blue-dark); }

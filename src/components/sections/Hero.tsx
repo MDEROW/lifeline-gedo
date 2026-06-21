@@ -1,71 +1,71 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1B5E20]">
-      {/* Background overlay pattern */}
-      <div className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-          backgroundSize: "40px 40px",
-        }}
-      />
+    <section className="relative min-h-screen flex items-end overflow-hidden pt-24">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/field/women-water.jpg"
+          alt="Women fetching clean water at Tula-Amin water point"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B2A]/70 via-transparent to-transparent" />
+      </div>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1B5E20] via-[#2E7D32]/90 to-[#1A237E]/80" />
+      <div className="relative container pb-20 pt-32 md:pt-0 md:pb-28">
+        <div className="max-w-2xl">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-2 mb-6">
+            <span className="w-8 h-0.5 bg-[#E8173A]" />
+            <span className="text-white/80 text-xs font-bold uppercase tracking-[0.15em]">
+              Humanitarian Aid · Gedo, Somalia
+            </span>
+          </div>
 
-      <div className="relative container text-white text-center pt-20 pb-16">
-        {/* Eyebrow */}
-        <div className="inline-flex items-center gap-2 bg-white/15 border border-white/25 rounded-full px-4 py-1.5 text-sm font-medium mb-8">
-          <span className="w-2 h-2 rounded-full bg-[#E65100] animate-pulse" />
-          Responding to Somalia&apos;s humanitarian crisis
-        </div>
+          {/* Headline */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tight">
+            Saving Lives.<br />
+            <span className="text-[#E8173A]">Building</span><br />
+            Futures.
+          </h1>
 
-        {/* Headline */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6 tracking-tight">
-          Saving Lives in
-          <br />
-          <span className="text-[#FFF8E1]">Somalia&apos;s Most</span>
-          <br />
-          Neglected Region
-        </h1>
+          <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
+            Lifeline Gedo delivers emergency health, food, water, and resilience
+            programs to Somalia&apos;s most neglected communities. Every crisis, we show up.
+          </p>
 
-        {/* Sub */}
-        <p className="text-white/85 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          Lifeline Gedo delivers emergency health, food, water, and resilience
-          programs to the most vulnerable communities in Gedo, Somalia.
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/donate"
-            className="bg-[#E65100] hover:bg-[#BF360C] text-white font-bold px-8 py-4 rounded-full text-base transition-colors shadow-lg"
-          >
-            Donate Now — Save a Life
-          </Link>
-          <Link
-            href="/programs"
-            className="bg-white/15 hover:bg-white/25 border border-white/40 text-white font-semibold px-8 py-4 rounded-full text-base transition-colors"
-          >
-            See Our Work ↓
-          </Link>
-        </div>
-
-        {/* Trust badges */}
-        <div className="mt-16 flex flex-wrap justify-center gap-6 text-white/60 text-xs">
-          <span>🤝 Partnered with UN Agencies</span>
-          <span>📋 Registered NGO</span>
-          <span>🌍 Operating since 2010</span>
-          <span>🏥 10+ Districts Reached</span>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/donate" className="btn-primary text-base px-8 py-4">
+              Donate Now
+            </Link>
+            <Link href="/programs" className="btn-secondary text-base px-8 py-4">
+              Our Work →
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* Wave bottom */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 80L1440 80L1440 30C1200 70 960 10 720 40C480 70 240 10 0 30L0 80Z" fill="#F9F6F0"/>
-        </svg>
+      {/* Bottom stat strip */}
+      <div className="absolute bottom-0 left-0 right-0 bg-[#1B1FCC]/90 backdrop-blur-sm">
+        <div className="container py-4 grid grid-cols-2 md:grid-cols-4 gap-4 divide-x divide-white/20">
+          {[
+            { n: "85,000+", l: "People Reached" },
+            { n: "14+ Yrs", l: "On the Ground" },
+            { n: "12", l: "Districts Covered" },
+            { n: "230+", l: "Projects Completed" },
+          ].map((s) => (
+            <div key={s.l} className="text-center px-4 first:pl-0">
+              <div className="text-white font-black text-xl md:text-2xl">{s.n}</div>
+              <div className="text-white/65 text-xs font-medium uppercase tracking-wide mt-0.5">{s.l}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

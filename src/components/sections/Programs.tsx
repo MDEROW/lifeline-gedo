@@ -1,78 +1,77 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const programs = [
   {
-    icon: "🏥",
     title: "Health & Nutrition",
-    description:
-      "Providing life-saving primary healthcare, maternal care, and nutrition support to communities facing acute malnutrition and disease outbreaks.",
-    color: "#E8F5E9",
-    border: "#A5D6A7",
+    description: "Mobile clinics, maternal care, and treatment for acute malnutrition reaching communities with no prior health access.",
+    image: "/images/field/girl-water.jpg",
     href: "/programs#health",
+    color: "#1B1FCC",
   },
   {
-    icon: "🌾",
     title: "Food Security",
-    description:
-      "Emergency food assistance, livelihood support, and agricultural inputs to help drought-affected families build sustainable food systems.",
-    color: "#FFF8E1",
-    border: "#FFE082",
+    description: "Emergency food assistance, agricultural inputs, and livelihood support for drought-affected families.",
+    image: "/images/field/food-distribution.jpg",
     href: "/programs#food",
+    color: "#E8173A",
   },
   {
-    icon: "💧",
     title: "WASH",
-    description:
-      "Water, sanitation, and hygiene programs delivering clean water access, latrines, and hygiene promotion to prevent disease and protect dignity.",
-    color: "#E3F2FD",
-    border: "#90CAF9",
+    description: "Boreholes, latrines, hygiene kits, and clean water access preventing waterborne disease outbreaks.",
+    image: "/images/programs/wash.jpg",
     href: "/programs#wash",
+    color: "#27AE60",
   },
   {
-    icon: "🌱",
     title: "Resilience",
-    description:
-      "Long-term programs building community capacity, disaster risk reduction, and economic recovery for sustainable recovery in Gedo.",
-    color: "#F3E5F5",
-    border: "#CE93D8",
+    description: "Community savings groups, women's empowerment, and disaster risk reduction for long-term recovery.",
+    image: "/images/programs/resilience.jpg",
     href: "/programs#resilience",
+    color: "#0D1B2A",
   },
 ];
 
 export default function Programs() {
   return (
-    <section className="py-20 bg-[#F9F6F0]">
+    <section className="py-24 bg-[#FAFAF7]">
       <div className="container">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <span className="text-[#E65100] font-bold text-sm uppercase tracking-widest">What We Do</span>
-          <h2 className="text-3xl md:text-4xl font-black text-[#1A1A2E] mt-2 mb-4">
-            Our Core Programs
-          </h2>
-          <p className="text-[#555] max-w-2xl mx-auto leading-relaxed">
-            We deliver integrated humanitarian and development programs addressing the root causes
-            and immediate needs of vulnerable communities across Gedo region.
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+          <div>
+            <span className="section-eyebrow">What We Do</span>
+            <h2 className="text-3xl md:text-4xl font-black text-[#0D1B2A] leading-tight">
+              Our Core Programs
+            </h2>
+          </div>
+          <Link href="/programs" className="text-sm font-bold text-[#1B1FCC] hover:underline shrink-0">
+            View all programs →
+          </Link>
         </div>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {programs.map((p) => (
-            <div
-              key={p.title}
-              className="rounded-2xl p-6 border-2 flex flex-col hover:shadow-lg transition-shadow"
-              style={{ backgroundColor: p.color, borderColor: p.border }}
-            >
-              <div className="text-4xl mb-4">{p.icon}</div>
-              <h3 className="font-bold text-[#1A1A2E] text-lg mb-3">{p.title}</h3>
-              <p className="text-[#555] text-sm leading-relaxed flex-1">{p.description}</p>
-              <Link
-                href={p.href}
-                className="mt-5 text-sm font-bold text-[#1B5E20] hover:underline inline-flex items-center gap-1"
-              >
-                Learn More →
-              </Link>
-            </div>
+            <Link key={p.title} href={p.href} className="group block">
+              <div className="relative h-56 rounded-lg overflow-hidden mb-4">
+                <Image
+                  src={p.image}
+                  alt={p.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div
+                  className="absolute top-3 left-3 w-1 h-6 rounded-full"
+                  style={{ backgroundColor: p.color }}
+                />
+              </div>
+              <h3 className="font-black text-[#0D1B2A] text-lg mb-2 group-hover:text-[#1B1FCC] transition-colors">
+                {p.title}
+              </h3>
+              <p className="text-sm text-[#4A4A6A] leading-relaxed">{p.description}</p>
+              <span className="inline-block mt-3 text-sm font-bold text-[#1B1FCC] group-hover:underline">
+                Learn more →
+              </span>
+            </Link>
           ))}
         </div>
       </div>
