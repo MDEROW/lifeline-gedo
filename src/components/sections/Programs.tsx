@@ -4,73 +4,68 @@ import Image from "next/image";
 const programs = [
   {
     title: "Health & Nutrition",
-    description: "Mobile clinics, maternal care, and treatment for acute malnutrition reaching communities with no prior health access.",
+    short: "Mobile clinics, maternal care, and malnutrition treatment across Gedo's most remote communities.",
     image: "/images/field/girl-water.jpg",
     href: "/programs#health",
-    color: "#1B1FCC",
+    accent: "#1E20D8",
+    tag: "🏥",
   },
   {
     title: "Food Security",
-    description: "Emergency food assistance, agricultural inputs, and livelihood support for drought-affected families.",
+    short: "Emergency food assistance, seeds, tools, and cash transfers for drought-affected families.",
     image: "/images/field/food-distribution.jpg",
     href: "/programs#food",
-    color: "#E8173A",
+    accent: "#E8173A",
+    tag: "🌾",
   },
   {
     title: "WASH",
-    description: "Boreholes, latrines, hygiene kits, and clean water access preventing waterborne disease outbreaks.",
+    short: "Boreholes, latrines, and hygiene promotion delivering clean water and sanitation.",
     image: "/images/programs/wash.jpg",
     href: "/programs#wash",
-    color: "#27AE60",
+    accent: "#2ECC71",
+    tag: "💧",
   },
   {
     title: "Resilience",
-    description: "Community savings groups, women's empowerment, and disaster risk reduction for long-term recovery.",
+    short: "Savings groups, women's empowerment, and disaster risk reduction for lasting recovery.",
     image: "/images/programs/resilience.jpg",
     href: "/programs#resilience",
-    color: "#0D1B2A",
+    accent: "#0A0E28",
+    tag: "🌱",
   },
 ];
 
 export default function Programs() {
   return (
-    <section className="py-24 bg-[#FAFAF7]">
+    <section className="py-24 bg-[#F8FAFF]">
       <div className="container">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
-            <span className="section-eyebrow">What We Do</span>
-            <h2 className="text-3xl md:text-4xl font-black text-[#0D1B2A] leading-tight">
-              Our Core Programs
-            </h2>
+            <p className="eyebrow">What We Do</p>
+            <h2 className="text-4xl md:text-5xl">Our Core<br />Programs</h2>
           </div>
-          <Link href="/programs" className="text-sm font-bold text-[#1B1FCC] hover:underline shrink-0">
-            View all programs →
+          <Link href="/programs" className="btn-outline-blue shrink-0">
+            All Programs →
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {programs.map((p) => (
-            <Link key={p.title} href={p.href} className="group block">
-              <div className="relative h-56 rounded-lg overflow-hidden mb-4">
-                <Image
-                  src={p.image}
-                  alt={p.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div
-                  className="absolute top-3 left-3 w-1 h-6 rounded-full"
-                  style={{ backgroundColor: p.color }}
-                />
+            <Link key={p.title} href={p.href} className="group bg-white rounded-2xl overflow-hidden border border-[#E2E8F0] hover:border-transparent hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+              <div className="relative h-48 overflow-hidden">
+                <Image src={p.image} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <span className="absolute bottom-3 left-3 text-2xl">{p.tag}</span>
               </div>
-              <h3 className="font-black text-[#0D1B2A] text-lg mb-2 group-hover:text-[#1B1FCC] transition-colors">
-                {p.title}
-              </h3>
-              <p className="text-sm text-[#4A4A6A] leading-relaxed">{p.description}</p>
-              <span className="inline-block mt-3 text-sm font-bold text-[#1B1FCC] group-hover:underline">
-                Learn more →
-              </span>
+              <div className="p-5">
+                <div className="w-8 h-1 rounded-full mb-3" style={{ backgroundColor: p.accent }} />
+                <h3 className="text-[16px] font-extrabold text-[#0A0E28] mb-2 group-hover:text-[#1E20D8] transition-colors" style={{ fontFamily: 'var(--font-jakarta)' }}>
+                  {p.title}
+                </h3>
+                <p className="text-[13px] text-[#64748B] leading-relaxed">{p.short}</p>
+                <span className="inline-block mt-4 text-[13px] font-bold text-[#1E20D8]">Learn more →</span>
+              </div>
             </Link>
           ))}
         </div>
