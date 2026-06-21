@@ -1,4 +1,5 @@
 import Hero from "@/components/sections/Hero";
+import MissionStrip from "@/components/sections/MissionStrip";
 import ImpactBar from "@/components/sections/ImpactBar";
 import Programs from "@/components/sections/Programs";
 import CrisisAppeal from "@/components/sections/CrisisAppeal";
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <MissionStrip />
       <ImpactBar />
       <Programs />
       <CrisisAppeal />

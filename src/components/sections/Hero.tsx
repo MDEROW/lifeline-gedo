@@ -1,60 +1,86 @@
 import Link from "next/link";
 import Image from "next/image";
 
+const stats = [
+  { n: "85,000+", l: "People Reached" },
+  { n: "21 Years", l: "On the Ground" },
+  { n: "12", l: "Districts Covered" },
+  { n: "230+", l: "Projects Completed" },
+];
+
 export default function Hero() {
   return (
-    <section className="relative h-[92vh] min-h-[600px] flex items-center overflow-hidden">
-      {/* Background */}
+    <section className="relative min-h-[92vh] flex flex-col overflow-hidden">
+
+      {/* Background photo */}
       <div className="absolute inset-0">
-        <Image src="/images/field/women-water.jpg" alt="Communities in Gedo, Somalia" fill className="object-cover object-center" priority />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0E28]/90 via-[#0A0E28]/60 to-transparent" />
+        <Image
+          src="/images/field/women-water.jpg"
+          alt="Communities in Gedo, Somalia"
+          fill
+          className="object-cover object-center"
+          priority
+          quality={90}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0E28]/95 via-[#0A0E28]/75 to-[#0A0E28]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E28]/80 via-transparent to-transparent" />
       </div>
 
-      <div className="relative container">
-        <div className="max-w-[640px]">
-          <h1 className="text-[clamp(3rem,7vw,5.5rem)] font-[family-name:var(--font-jakarta)] font-extrabold text-white leading-[1.0] mb-6 tracking-tight">
-            Saving Lives.<br />
-            <span className="text-[#E8173A]">Rebuilding</span><br />
-            Futures.
-          </h1>
+      {/* Main content */}
+      <div className="relative flex-1 flex items-center">
+        <div className="container py-24 lg:py-32">
+          <div className="max-w-[680px]">
 
-          <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 font-[family-name:var(--font-dm)] max-w-[520px]">
-            Somalia-led humanitarian response in Gedo region — emergency health,
-            food, water, and resilience for the most vulnerable communities.
-          </p>
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2.5 bg-white/8 backdrop-blur-sm border border-white/15 rounded-full px-5 py-2.5 mb-10">
+              <span className="w-2 h-2 rounded-full bg-[#2ECC71] animate-pulse shrink-0" />
+              <span className="text-white/80 text-[12px] font-semibold tracking-widest uppercase" style={{ fontFamily: "var(--font-jakarta)" }}>
+                Lifeline Gedo · Est. 2005 · Gedo Region, Somalia
+              </span>
+            </div>
 
-          <div className="flex flex-wrap gap-4 mb-14">
-            <Link href="/donate" className="btn-donate text-[15px] px-8 py-4">
-              Donate Now
-            </Link>
-            <Link href="/programs" className="btn-outline-white text-[15px] px-8 py-4">
-              Our Work
-            </Link>
-          </div>
+            {/* Headline */}
+            <h1 className="text-[clamp(3.2rem,7vw,5.8rem)] font-extrabold text-white leading-[1.02] tracking-tight mb-7"
+              style={{ fontFamily: "var(--font-jakarta)" }}>
+              Saving Lives.<br />
+              <span className="text-[#E8173A]">Rebuilding</span><br />
+              Futures.
+            </h1>
 
-          {/* Established badge */}
-          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5">
-            <div className="w-2 h-2 rounded-full bg-[#2ECC71] animate-pulse" />
-            <span className="text-white/85 text-sm font-semibold" style={{ fontFamily: 'var(--font-jakarta)' }}>
-              Established 2005 · Serving Gedo for 21 years
-            </span>
+            {/* Tagline */}
+            <p className="text-white/75 text-lg md:text-xl leading-relaxed mb-11 max-w-[530px]">
+              Somalia-led humanitarian response in Gedo region — delivering emergency
+              health, food, water, and resilience to the most vulnerable communities
+              since 2005.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-4">
+              <Link href="/donate" className="btn-donate text-[15px] px-9 py-4">
+                Donate Now
+              </Link>
+              <Link href="/programs" className="btn-outline-white text-[15px] px-9 py-4">
+                Our Work →
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Stat strip */}
-      <div className="absolute bottom-0 left-0 right-0 bg-[#1E20D8]">
+      <div className="relative bg-[#1E20D8]">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/20">
-            {[
-              { n: "85,000+", l: "People Reached" },
-              { n: "21 Yrs", l: "On the Ground" },
-              { n: "12", l: "Districts Covered" },
-              { n: "230+", l: "Projects Completed" },
-            ].map((s) => (
-              <div key={s.l} className="py-7 text-center px-4">
-                <div className="text-white text-2xl md:text-3xl font-extrabold leading-none" style={{ fontFamily: 'var(--font-jakarta)' }}>{s.n}</div>
-                <div className="text-white/60 text-xs font-medium uppercase tracking-widest mt-1.5">{s.l}</div>
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            {stats.map((s, i) => (
+              <div key={s.l}
+                className={`py-6 px-6 text-center ${i < stats.length - 1 ? "border-r border-white/20" : ""}`}>
+                <div className="text-white text-2xl md:text-3xl font-extrabold leading-none mb-1.5"
+                  style={{ fontFamily: "var(--font-jakarta)" }}>
+                  {s.n}
+                </div>
+                <div className="text-white/55 text-[11px] font-semibold uppercase tracking-widest">
+                  {s.l}
+                </div>
               </div>
             ))}
           </div>
