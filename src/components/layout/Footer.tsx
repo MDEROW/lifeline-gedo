@@ -27,29 +27,21 @@ const trust = [
   { stat: "100%", label: "Reaches the field" },
   { stat: "21", label: "Years of service" },
   { stat: "85k+", label: "Lives reached" },
-  { stat: "12%", label: "Admin costs only" },
 ];
 
 export default function Footer() {
   return (
     <footer>
 
-      {/* ─── Slim trust / donate strip ────────────────────────────────── */}
-      <div className="bg-[#11163A] border-b border-white/10">
-        <div className="container py-6 flex flex-col md:flex-row items-center justify-between gap-5">
-          {/* Trust stats inline */}
-          <div className="flex items-center divide-x divide-white/12">
-            {trust.map((t) => (
-              <div key={t.label} className="px-5 first:pl-0 text-center md:text-left">
-                <span className="text-white text-[17px] font-extrabold mr-2" style={{ fontFamily: "var(--font-jakarta)" }}>{t.stat}</span>
-                <span className="text-white/50 text-[11px] font-semibold uppercase tracking-wide hidden sm:inline">{t.label}</span>
-              </div>
-            ))}
-          </div>
-
-          <Link href="/donate" className="btn-donate text-[14px] px-7 py-3 shrink-0">
-            Donate Now <ArrowRight size={15} />
-          </Link>
+      {/* ─── Slim trust strip ─────────────────────────────────────────── */}
+      <div className="bg-[#11553F]">
+        <div className="container py-6 flex items-center justify-center divide-x divide-white/15">
+          {trust.map((t) => (
+            <div key={t.label} className="px-6 sm:px-8 text-center">
+              <span className="text-white text-[17px] font-extrabold mr-2" style={{ fontFamily: "var(--font-jakarta)" }}>{t.stat}</span>
+              <span className="text-white/65 text-[11px] font-semibold uppercase tracking-wide hidden sm:inline">{t.label}</span>
+            </div>
+          ))}
         </div>
       </div>
 
