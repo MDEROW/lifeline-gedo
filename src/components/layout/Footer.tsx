@@ -34,41 +34,22 @@ export default function Footer() {
   return (
     <footer>
 
-      {/* ─── Donate CTA band ──────────────────────────────────────────── */}
-      <div className="bg-[#1E20D8]">
-        <div className="container py-14">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-            <div className="max-w-xl">
-              <p className="text-white/70 text-[11px] font-bold uppercase tracking-[0.18em] mb-3" style={{ fontFamily: "var(--font-jakarta)" }}>
-                Stand with Gedo
-              </p>
-              <h2 className="text-white text-[clamp(1.9rem,3.2vw,2.8rem)] font-extrabold leading-[1.12]" style={{ fontFamily: "var(--font-jakarta)" }}>
-                Your support saves lives in Somalia.
-              </h2>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-              <Link href="/donate" className="btn-donate text-[15px] px-10 py-4">
-                Donate Now <ArrowRight size={16} />
-              </Link>
-              <Link href="/contact" className="btn-outline-white text-[15px] px-10 py-4">
-                Become a Partner
-              </Link>
-            </div>
-          </div>
-
-          {/* Trust stats row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-12 pt-10 border-t border-white/15">
+      {/* ─── Slim trust / donate strip ────────────────────────────────── */}
+      <div className="bg-[#11163A] border-b border-white/10">
+        <div className="container py-6 flex flex-col md:flex-row items-center justify-between gap-5">
+          {/* Trust stats inline */}
+          <div className="flex items-center divide-x divide-white/12">
             {trust.map((t) => (
-              <div key={t.label} className="text-center md:text-left">
-                <div className="text-white text-[2rem] font-extrabold leading-none mb-1.5" style={{ fontFamily: "var(--font-jakarta)" }}>
-                  {t.stat}
-                </div>
-                <div className="text-white/60 text-[12px] font-semibold uppercase tracking-wide">
-                  {t.label}
-                </div>
+              <div key={t.label} className="px-5 first:pl-0 text-center md:text-left">
+                <span className="text-white text-[17px] font-extrabold mr-2" style={{ fontFamily: "var(--font-jakarta)" }}>{t.stat}</span>
+                <span className="text-white/50 text-[11px] font-semibold uppercase tracking-wide hidden sm:inline">{t.label}</span>
               </div>
             ))}
           </div>
+
+          <Link href="/donate" className="btn-donate text-[14px] px-7 py-3 shrink-0">
+            Donate Now <ArrowRight size={15} />
+          </Link>
         </div>
       </div>
 
