@@ -5,6 +5,7 @@ import Programs from "@/components/sections/Programs";
 import CrisisAppeal from "@/components/sections/CrisisAppeal";
 import Stories from "@/components/sections/Stories";
 import Partners from "@/components/sections/Partners";
+import ContactCTA from "@/components/sections/ContactCTA";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <CrisisAppeal />
       <Stories />
       <Partners />
+      <ContactCTA />
     </>
   );
 }
