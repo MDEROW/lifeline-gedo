@@ -46,16 +46,12 @@ export default function Navbar() {
         scrolled ? "bg-white/97 backdrop-blur-lg shadow-[0_1px_0_0_#E2E8F0] shadow-md" : "bg-white border-b border-[#E8EDF5]"
       }`}>
         <div className="container">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-24">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 shrink-0 group">
-              <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-white border border-[#E2E8F0] p-1 group-hover:border-[#1E20D8] transition-colors">
-                <Image src="/images/logo/llg-logo.png" alt="Lifeline Gedo" fill className="object-contain p-0.5" />
-              </div>
-              <div className="hidden md:block">
-                <p className="text-[#0A0E28] font-extrabold text-[15px] leading-tight" style={{ fontFamily: "var(--font-jakarta)" }}>Lifeline Gedo</p>
-                <p className="text-[#94A3B8] text-[11px] font-medium tracking-wide">Organisation · Est. 2005</p>
+            <Link href="/" className="flex items-center shrink-0">
+              <div className="relative w-[180px] h-16 transition-transform duration-200 hover:scale-[1.03]">
+                <Image src="/images/logo/llg-logo.png" alt="Lifeline Gedo" fill className="object-contain object-left" priority />
               </div>
             </Link>
 

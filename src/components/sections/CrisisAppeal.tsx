@@ -19,7 +19,7 @@ export default function CrisisAppeal() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0E28] via-[#0A0E28]/95 to-[#0A0E28]/80" />
       </div>
 
-      <div className="relative container py-36">
+      <div className="relative container py-44">
         <div className="grid lg:grid-cols-5 gap-16 items-start">
 
           {/* Left — 3 cols */}

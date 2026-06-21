@@ -41,15 +41,15 @@ export default function Partners() {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-px bg-[#E8EDF5] rounded-2xl overflow-hidden border border-[#E8EDF5]">
               {partners.map((p) => (
                 <div key={p.id}
-                  className="group relative bg-white flex items-center justify-center aspect-[3/2] hover:bg-[#F4F7FF] transition-colors duration-300">
-                  <div className="relative w-[68%] h-[55%] grayscale opacity-55 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                  className="group relative bg-white flex items-center justify-center aspect-[3/2] p-5 hover:bg-[#F4F7FF] transition-colors duration-300">
+                  <div className="relative w-[90%] h-[80%] grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
                     <Image src={p.src} alt={p.alt} fill className="object-contain" />
                   </div>
                 </div>
               ))}
               {/* Filler cell to complete the grid */}
               <div className="hidden md:flex bg-[#0A0E28] items-center justify-center aspect-[3/2]">
-                <span className="text-white/80 text-[12px] font-bold text-center px-4 leading-snug" style={{ fontFamily: "var(--font-jakarta)" }}>
+                <span className="text-white text-[13px] font-bold text-center px-4 leading-snug" style={{ fontFamily: "var(--font-jakarta)" }}>
                   Partner<br />with us →
                 </span>
               </div>
