@@ -14,19 +14,19 @@ export default function Partners() {
           Our Partners & Institutional Donors
         </p>
 
-        {/* Row 1 — 7 logos */}
-        <div className="flex flex-wrap justify-center gap-12 mb-12">
+        {/* Row 1 — exactly 7 logos */}
+        <div className="grid grid-cols-4 md:grid-cols-7 gap-8 place-items-center mb-10">
           {partners.slice(0, 7).map((p) => (
-            <div key={p.id} className="relative h-20 w-44 grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all duration-300 hover:scale-105">
+            <div key={p.id} className="relative h-16 w-full max-w-[140px] grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all duration-300 hover:scale-105">
               <Image src={p.src} alt={p.alt} fill className="object-contain" />
             </div>
           ))}
         </div>
 
-        {/* Row 2 — 6 logos */}
-        <div className="flex flex-wrap justify-center gap-12">
+        {/* Row 2 — exactly 6 logos */}
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-8 place-items-center">
           {partners.slice(7).map((p) => (
-            <div key={p.id} className="relative h-20 w-44 grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all duration-300 hover:scale-105">
+            <div key={p.id} className="relative h-16 w-full max-w-[140px] grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all duration-300 hover:scale-105">
               <Image src={p.src} alt={p.alt} fill className="object-contain" />
             </div>
           ))}

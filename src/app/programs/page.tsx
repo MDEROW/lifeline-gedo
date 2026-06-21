@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -9,65 +10,61 @@ export const metadata: Metadata = {
 const programs = [
   {
     id: "health",
-    icon: "🏥",
-    color: "#E8F5E9",
-    border: "#A5D6A7",
+    color: "#1E20D8",
+    bg: "#EAEBFF",
     title: "Health & Nutrition",
-    description:
-      "We operate mobile health clinics and static health posts across Gedo, providing primary healthcare, maternal and child health services, and treatment for acute malnutrition. Our teams respond to disease outbreaks including cholera and measles.",
+    image: "/images/field/girl-water.jpg",
+    lead: "Mobile clinics, maternal care, and malnutrition treatment reaching the most remote communities in Gedo.",
     activities: [
-      "Mobile health clinics reaching remote communities",
-      "Treatment for Severe Acute Malnutrition (SAM)",
+      "Mobile health clinics reaching remote communities weekly",
+      "Treatment for Severe Acute Malnutrition (SAM & MAM)",
       "Maternal and child health services",
-      "Vaccination campaigns",
-      "Disease outbreak response",
+      "Vaccination campaigns and disease surveillance",
+      "Rapid response to cholera and measles outbreaks",
     ],
   },
   {
     id: "food",
-    icon: "🌾",
-    color: "#FFF8E1",
-    border: "#FFE082",
+    color: "#E8173A",
+    bg: "#FEF0F2",
     title: "Food Security & Livelihoods",
-    description:
-      "Combining emergency food assistance with long-term livelihood support, we help communities survive immediate crises while building the capacity to feed themselves sustainably through agriculture, livestock, and income generation.",
+    image: "/images/field/food-distribution.jpg",
+    lead: "Emergency food assistance and long-term livelihood support so communities survive crises and build back stronger.",
     activities: [
-      "Emergency food assistance (unconditional cash transfers)",
-      "Agricultural input distribution (seeds, tools)",
-      "Livestock support and veterinary care",
-      "Cash-for-work programs",
-      "Market and value chain development",
+      "Unconditional cash transfers for drought-affected families",
+      "Agricultural seed and tool distribution",
+      "Livestock restocking and veterinary support",
+      "Cash-for-work community infrastructure programs",
+      "Market system strengthening and value chain development",
     ],
   },
   {
     id: "wash",
-    icon: "💧",
-    color: "#E3F2FD",
-    border: "#90CAF9",
-    title: "Water, Sanitation & Hygiene (WASH)",
-    description:
-      "Access to clean water is a matter of life and death. We rehabilitate boreholes, construct latrines, distribute hygiene kits, and run community hygiene promotion to prevent waterborne disease outbreaks.",
+    color: "#2ECC71",
+    bg: "#EAFAF1",
+    title: "Water, Sanitation & Hygiene",
+    image: "/images/field/women-water.jpg",
+    lead: "Access to clean water is life or death in Gedo. We rehabilitate boreholes, build latrines, and prevent waterborne disease.",
     activities: [
-      "Borehole rehabilitation and construction",
+      "Borehole rehabilitation and new construction",
       "Latrine construction in schools and communities",
-      "Hygiene kit distribution",
-      "Community hygiene promotion",
+      "Hygiene kit distribution to vulnerable households",
+      "Community hygiene promotion campaigns",
       "Water quality testing and treatment",
     ],
   },
   {
     id: "resilience",
-    icon: "🌱",
-    color: "#F3E5F5",
-    border: "#CE93D8",
+    color: "#0A0E28",
+    bg: "#F8FAFF",
     title: "Resilience & Early Recovery",
-    description:
-      "Beyond emergency response, we invest in long-term community resilience through disaster risk reduction, community savings groups, women&apos;s empowerment, and support for durable solutions for displaced populations.",
+    image: "/images/field/shg-training.jpg",
+    lead: "Beyond emergency response — building long-term resilience through savings groups, women's empowerment, and disaster risk reduction.",
     activities: [
-      "Disaster risk reduction (DRR) training",
-      "Community savings and loan groups (VSLAs)",
+      "Disaster risk reduction (DRR) training in villages",
+      "Village Savings and Loan Associations (VSLAs)",
       "Women's leadership and protection programs",
-      "Durable solutions for IDPs",
+      "Durable solutions for internally displaced people",
       "Community infrastructure rehabilitation",
     ],
   },
@@ -75,55 +72,91 @@ const programs = [
 
 export default function ProgramsPage() {
   return (
-    <div className="pt-16">
-      {/* Header */}
-      <section className="bg-[#1B5E20] py-20 text-white">
-        <div className="container">
-          <span className="text-white/60 text-sm font-bold uppercase tracking-widest">What We Do</span>
-          <h1 className="text-4xl md:text-5xl font-black mt-2 mb-4">Our Programs</h1>
-          <p className="text-white/80 max-w-2xl text-lg leading-relaxed">
-            Integrated humanitarian response across health, food, water, and resilience —
-            reaching the most vulnerable communities in Gedo region.
+    <div>
+      {/* Hero */}
+      <section className="relative bg-[#0A0E28] py-32 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <Image src="/images/field/community-water-trucking.jpg" alt="" fill className="object-cover" />
+        </div>
+        <div className="relative container">
+          <p className="eyebrow" style={{ color: "#2ECC71" }}>What We Do</p>
+          <h1 className="text-5xl md:text-6xl text-white font-extrabold mt-3 mb-6 leading-tight" style={{ fontFamily: "var(--font-jakarta)" }}>
+            Integrated<br />
+            <span style={{ color: "#1E20D8" }}>Humanitarian</span><br />
+            Response.
+          </h1>
+          <p className="text-white/70 text-xl leading-relaxed max-w-2xl font-[family-name:var(--font-dm)]">
+            Health, food security, water, and resilience — delivered together for the most
+            vulnerable communities across Somalia's Gedo region.
           </p>
+          {/* Jump links */}
+          <div className="flex flex-wrap gap-3 mt-10">
+            {programs.map((p) => (
+              <a key={p.id} href={`#${p.id}`}
+                className="text-white/70 hover:text-white border border-white/20 hover:border-white/60 rounded-full px-5 py-2 text-sm font-semibold transition-all"
+                style={{ fontFamily: "var(--font-jakarta)" }}>
+                {p.title}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Programs */}
-      <section className="py-20 bg-[#F9F6F0]">
-        <div className="container flex flex-col gap-16">
-          {programs.map((p, i) => (
-            <div key={p.id} id={p.id} className="scroll-mt-24 grid md:grid-cols-2 gap-8 items-start">
-              <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                <div
-                  className="rounded-2xl p-8 border-2 h-full"
-                  style={{ backgroundColor: p.color, borderColor: p.border }}
-                >
-                  <div className="text-5xl mb-4">{p.icon}</div>
-                  <h2 className="text-2xl font-black text-[#1A1A2E] mb-4">{p.title}</h2>
-                  <p className="text-[#555] leading-relaxed">{p.description}</p>
+      <div className="bg-white">
+        {programs.map((p, i) => (
+          <section key={p.id} id={p.id} className={`py-32 scroll-mt-24 ${i % 2 === 1 ? "bg-[#F8FAFF]" : "bg-white"}`}>
+            <div className="container">
+              <div className={`grid lg:grid-cols-2 gap-16 items-center ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
+                {/* Image */}
+                <div className="relative h-[420px] rounded-2xl overflow-hidden shadow-2xl">
+                  <Image src={p.image} alt={p.title} fill className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute top-0 left-0 w-1.5 h-full" style={{ backgroundColor: p.color }} />
                 </div>
-              </div>
-              <div className={i % 2 === 1 ? "md:order-1" : ""}>
-                <h3 className="font-bold text-[#1A1A2E] mb-4 text-lg">Key Activities</h3>
-                <ul className="flex flex-col gap-3">
-                  {p.activities.map((a) => (
-                    <li key={a} className="flex gap-3 items-start text-[#444] text-sm">
-                      <span className="text-[#1B5E20] font-black mt-0.5">✓</span>
-                      {a}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8">
-                  <Link
-                    href="/donate"
-                    className="inline-block bg-[#E65100] hover:bg-[#BF360C] text-white font-bold px-6 py-3 rounded-full text-sm transition-colors"
-                  >
+
+                {/* Content */}
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider mb-6"
+                    style={{ backgroundColor: p.bg, color: p.color, fontFamily: "var(--font-jakarta)" }}>
+                    <span className="w-2 h-2 rounded-full" style={{ backgroundColor: p.color }} />
+                    {p.title}
+                  </div>
+                  <h2 className="text-3xl md:text-4xl mb-5" style={{ fontFamily: "var(--font-jakarta)" }}>{p.title}</h2>
+                  <p className="text-[#64748B] text-lg leading-relaxed mb-8 font-[family-name:var(--font-dm)]">{p.lead}</p>
+
+                  <ul className="space-y-3 mb-10">
+                    {p.activities.map((a) => (
+                      <li key={a} className="flex gap-3 items-start text-[#475569] font-[family-name:var(--font-dm)]">
+                        <span className="mt-1.5 w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: p.color }} />
+                        {a}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link href="/donate" className="btn-donate">
                     Support This Program →
                   </Link>
                 </div>
               </div>
             </div>
-          ))}
+          </section>
+        ))}
+      </div>
+
+      {/* CTA */}
+      <section className="py-24 bg-[#0A0E28]">
+        <div className="container text-center">
+          <h2 className="text-4xl text-white font-extrabold mb-4" style={{ fontFamily: "var(--font-jakarta)" }}>
+            Help Fund Our Programs
+          </h2>
+          <p className="text-white/60 text-lg mb-10 font-[family-name:var(--font-dm)]">
+            Your contribution directly funds the programs above in Gedo region.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/donate" className="btn-donate text-[15px] px-10 py-4">Donate Now</Link>
+            <Link href="/contact" className="btn-outline-white text-[15px] px-10 py-4">Partner With Us</Link>
+          </div>
         </div>
       </section>
     </div>
