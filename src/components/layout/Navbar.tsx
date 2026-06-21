@@ -47,7 +47,7 @@ export default function Navbar() {
         <div className="container flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <Image src="/images/logo/llg-logo.png" alt="Lifeline Gedo" width={44} height={44} className="object-contain" />
+            <Image src="/images/logo/llg-logo.png" alt="Lifeline Gedo" width={52} height={52} className="object-contain" />
             <div className="hidden sm:block leading-tight">
               <p className="font-[family-name:var(--font-jakarta)] font-800 text-[#1E20D8] text-sm font-extrabold tracking-tight">Lifeline Gedo</p>
               <p className="text-[10px] text-[#64748B] font-medium">Organisation</p>

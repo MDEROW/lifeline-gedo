@@ -52,7 +52,7 @@ export default function Hero() {
               { n: "12", l: "Districts Covered" },
               { n: "230+", l: "Projects Completed" },
             ].map((s) => (
-              <div key={s.l} className="py-5 text-center px-4">
+              <div key={s.l} className="py-7 text-center px-4">
                 <div className="text-white text-2xl md:text-3xl font-extrabold leading-none" style={{ fontFamily: 'var(--font-jakarta)' }}>{s.n}</div>
                 <div className="text-white/60 text-xs font-medium uppercase tracking-widest mt-1.5">{s.l}</div>
               </div>

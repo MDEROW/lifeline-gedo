@@ -30,20 +30,20 @@ const stories = [
 
 export default function Stories() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-36 bg-white">
       <div className="container">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20">
           <div>
             <p className="eyebrow">Voices from the Field</p>
-            <h2 className="text-4xl md:text-5xl">Stories of<br />Real Impact</h2>
+            <h2 className="text-4xl md:text-5xl mt-2">Stories of<br />Real Impact</h2>
           </div>
           <Link href="/impact" className="btn-outline-blue shrink-0">More Stories →</Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
           {stories.map((s) => (
-            <div key={s.name} className="group flex flex-col bg-[#F8FAFF] rounded-2xl overflow-hidden border border-[#E2E8F0] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="relative h-52 overflow-hidden">
+            <div key={s.name} className="group flex flex-col bg-[#F8FAFF] rounded-2xl overflow-hidden border border-[#E2E8F0] hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <div className="relative h-64 overflow-hidden">
                 <Image src={s.image} alt={s.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <span
@@ -54,12 +54,12 @@ export default function Stories() {
                 </span>
               </div>
 
-              <div className="p-6 flex flex-col flex-1">
-                <div className="text-5xl text-[#E2E8F0] font-serif leading-none mb-2 select-none">&ldquo;</div>
+              <div className="p-8 flex flex-col flex-1">
+                <div className="text-6xl text-[#E2E8F0] font-serif leading-none mb-3 select-none">&ldquo;</div>
                 <p className="text-[#475569] text-[15px] leading-relaxed italic flex-1 font-[family-name:var(--font-dm)]">{s.quote}</p>
-                <div className="mt-5 pt-5 border-t border-[#E2E8F0]">
+                <div className="mt-7 pt-7 border-t border-[#E2E8F0]">
                   <p className="font-bold text-[#0A0E28] text-sm" style={{ fontFamily: 'var(--font-jakarta)' }}>{s.name}</p>
-                  <p className="text-xs text-[#94A3B8] mt-0.5">{s.location}</p>
+                  <p className="text-xs text-[#94A3B8] mt-1">{s.location}</p>
                 </div>
               </div>
             </div>

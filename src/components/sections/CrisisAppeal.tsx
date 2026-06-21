@@ -9,7 +9,7 @@ export default function CrisisAppeal() {
         <Image src="/images/field/water-trucking.jpg" alt="Emergency water trucking" fill className="object-cover opacity-15" />
       </div>
 
-      <div className="relative container py-28">
+      <div className="relative container py-36">
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           {/* Left — 3 cols */}
           <div className="lg:col-span-3">

@@ -34,19 +34,19 @@ function Counter({ value, suffix, prefix = "" }: { value: number; suffix: string
 
 export default function ImpactBar() {
   return (
-    <section className="py-28 bg-white">
+    <section className="py-36 bg-white">
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-24 items-center">
           {/* Left: text + stats */}
           <div>
             <p className="eyebrow">Our Impact Since 2005</p>
-            <h2 className="text-4xl md:text-5xl mb-6">21 Years.<br />Thousands of Lives.</h2>
-            <p className="text-[#64748B] text-lg leading-relaxed mb-12 font-[family-name:var(--font-dm)]">
+            <h2 className="text-4xl md:text-5xl mt-2 mb-8">21 Years.<br />Thousands of Lives.</h2>
+            <p className="text-[#64748B] text-lg leading-relaxed mb-16 font-[family-name:var(--font-dm)]">
               Since our founding in 2005, Lifeline Gedo has been present in Gedo region through
               every drought, flood, and crisis — delivering results where others cannot reach.
             </p>
 
-            <div className="grid grid-cols-2 gap-8 mb-12">
+            <div className="grid grid-cols-2 gap-10 mb-14">
               {[
                 { value: 85000, suffix: "+", label: "People Reached", color: "#1E20D8" },
                 { value: 50000, suffix: "+", label: "Children Treated", color: "#E8173A" },
